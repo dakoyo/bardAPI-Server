@@ -113,6 +113,7 @@ app.post("/api", async (req, res) => {
       ids,
       image: imageBuffer
     }) 
+    console.log(answer);
     const result = {
       message: answer.content,
       id: answer.ids.join("-")
