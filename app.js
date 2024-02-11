@@ -8,8 +8,12 @@ const port = process.env.PORT || 3001;
 app.use(express.json());
 
 const apiKeys = process.env.APIKEYS?.split(",") ?? ["debug-api-key"];
-
-const bard = new Bard(process.env.BARD_COOKIE);
+let bard
+try {
+  bard = new Bard(process.env.BARD_COOKIE);
+} catch {
+  console.log("初期化に失敗")
+}
 
 app.get("/", (req, res) => {
   res.send("Hello, world");
