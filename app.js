@@ -86,13 +86,19 @@ app.post("/api", async (req, res) => {
   try {
     let ids;
     if (condition.conversationId) {
-      ids = req.body.conversationId.split("-");
-      if (ids.length > 4) {
+      const bodyIds = req.body.conversationId.split("-");
+      if (bodyIds.length !== 4) {
         res.status(500).json({
           error: "body format error",
           description: "Invalid conversation id format."
         });
         return;
+      }
+      ids = {
+        conversationID: bodyIds[0],
+        responseID: bodyIds[1],
+        choiceID: bodyIds[2],
+        _reqID: bodyIds[3]
       }
     }
     let imageBuffer;
@@ -113,10 +119,9 @@ app.post("/api", async (req, res) => {
       ids,
       image: imageBuffer
     }) 
-    console.log(answer);
     const result = {
       message: answer.content,
-      id: answer.ids.join("-")
+      id: Object.values(answer.ids).join("-")
     };
     res.json(result);
   } catch (e) {
