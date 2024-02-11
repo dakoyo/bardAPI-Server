@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 app.post("/api", async (req, res) => {
   const authHeader = req.headers.authorization;
+  console.log(`request: ip=${req.ip}, apikey=${authHeader}`)
   const condition = {
     imageURL: false,
     conversationId: false,
