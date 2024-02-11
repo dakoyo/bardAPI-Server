@@ -69,16 +69,13 @@ class Bard {
         }
 
         try {
-            console.log(responseText)
             const SNlM0e = responseText.match(/SNlM0e":"(.*?)"/)[1];
             // Assign SNlM0e and return it
             this.SNlM0e = SNlM0e;
             this.#verbose && console.log("✅ Initialization finished\n");
             return SNlM0e;
         } catch {
-            throw new Error(
-                "Could not use your Cookie. Make sure that you copied correctly the Cookie with name __Secure-1PSID exactly. If you are sure your cookie is correct, you may also have reached your rate limit."
-            );
+            console.warn("畜生！やられた！")
         }
     }
 
