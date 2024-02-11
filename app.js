@@ -7,9 +7,6 @@ const port = process.env.PORT || 3001;
 import timeout from "express-timeout-handler"
 
 app.use(express.json());
-app.use(timeout.handler({
-  timeout: 5000
-}))
 
 const apiKeys = process.env.APIKEYS?.split(",") ?? ["debug-api-key"];
 let bard
