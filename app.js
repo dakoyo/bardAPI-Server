@@ -12,7 +12,7 @@ let bard
 try {
   bard = new Bard(process.env.BARD_COOKIE);
 } catch {
-  console.log("初期化に失敗")
+  console.log("初期化に失敗");
 }
 
 app.get("/", (req, res) => {
