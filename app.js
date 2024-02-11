@@ -10,7 +10,7 @@ app.use(express.json());
 const apiKeys = process.env.APIKEYS?.split(",") ?? ["debug-api-key"];
 let bard
 try {
-  bard = "test"
+  bard = new Bard(process.env.BARD_COOKIE)
 } catch {
   console.log("初期化に失敗");
 }
