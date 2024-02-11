@@ -121,7 +121,7 @@ app.post("/api", async (req, res) => {
     }) 
     const result = {
       message: answer.content,
-      id: Object.values(answer.ids).join("-")
+      conversationId: Object.values(answer.ids).join("-")
     };
     res.json(result);
   } catch (e) {
