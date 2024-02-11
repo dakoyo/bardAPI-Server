@@ -69,6 +69,7 @@ class Bard {
         }
 
         try {
+            console.log(responseText)
             const SNlM0e = responseText.match(/SNlM0e":"(.*?)"/)[1];
             // Assign SNlM0e and return it
             this.SNlM0e = SNlM0e;
